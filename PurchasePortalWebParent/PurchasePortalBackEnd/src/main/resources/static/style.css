@@ -1,0 +1,11 @@
+*.icon-white {color:white}
+*.icon-silver {color:silver}
+*.icon-green {color:green}
+*.icon-dark {color:gray}
+*.icon-black {color:black}
+
+.foot {
+    position: absolute;
+    bottom: 0px;
+    width:100%;
+            }
