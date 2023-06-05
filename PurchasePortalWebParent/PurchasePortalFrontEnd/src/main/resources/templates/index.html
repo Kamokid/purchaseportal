@@ -1,11 +1,33 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Welcome to the Purchase Portal</title>
-</head>
+<html xmlns:th="http://www.thymeleaf.org"
+		xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head th:replace="fragments :: page_head('Purchase Portal','none')"></head>
 <body>
-  <h1>Welcome to the Purchase Portal</h1>
+  <div class="container-fluid d-flex flex-column min-vh-100"> 
+	<div th:replace="navigation :: header_menu"></div>
+	
+	<div class="bg-warning py-5">
+	
+	 	<div class="text-center">
+	 		Welcome
+	 		<a th:href="@{/account}" sec:authentication="principal.fullname"></a>
+	 		to the Farm Support Customer Purchase Portal
+	 	</div>
+	
+	 	<div class="container text-center mt-5">
+	 		<img th:src="@{/images/admin2.png}"/>	
+	 	</div>
+	 </div>
+	
+	<div class="container-fluid bg-warning">
+	&nbsp;
+	</div>
+	<div class="container-fluid bg-warning p-3">
+	&nbsp;
+	</div>
 
+	<footer th:replace="fragments :: footer"></footer>
+</div>
+<script th:src="@{/js/common_form.js}"></script>
 </body>
 </html>

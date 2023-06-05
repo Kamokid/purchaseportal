@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th ="http://wwww.thymeleaf.org">
+<head>
+	<meta charset="ISO-8859-1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink, shrink-to-fit=no">
+	<title>Sign Up - Customer</title>
+	<link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+	<link rel="stylesheet" th:href="@{/style/signup.css}">
+	<script th:src="@{/webjars/jquery/jquery.min.js}" defer></script>
+	<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}" defer></script>
+</head>
+<body class="bg-warning">
+<div class="container-fluid d-flex flex-column min-vh-100"> 
+<h1 class ='text-center' > Customer Signup</h1>
+<form id="signup-form" method="post" th:action="@{/users/signup}" th:object ="${customer}" class="form-signup">
+	<!-- Company Name -->
+	<div class ="form-group" >
+		<label for ="companyName" th:text ="#{companyName}"></label>
+		<input type ="text" th:field="*{companyName}" class="form-control" th:errorclass ="is-invalid"/>
+		<div class ="invalid-feedback" th:errors ="*{companyName}" ></div>
+	</div>
+	<!-- Phone Number -->
+	<div class ="form-group">
+		<label for ="phoneNumber" th:text ="#{phoneNumber}"></label>
+		<input type="tel" id="phone" name="phone"  placeholder="256-555-555455" 
+		pattern="[2-9]{3}-[0-9]{3}-[0-9]{3}[0-9]{3}" class ="form-control" th:field="*{phoneNumber}"  th:errorclass ="is-invalid" required/>
+		<div class ="invalid-feedback" th:errors ="*{phoneNumber}" ></div>
+	</div>
+	<!-- Address -->
+	<div class ="form-group" >
+		<label for ="address" th:text ="#{address}" ></label>
+		<input type ="text" class ="form-control"  th:field="*{address}" th:errorclass ="is-invalid" />
+		<div class ="invalid-feedback" th:errors ="*{address}" ></div>
+	</div>
+	
+	<!-- City -->
+	<div class ="form-group" >
+		<label for ="city" th:text ="#{city}" ></label>
+		<input type ="text" class ="form-control"  th:field="*{city}" th:errorclass ="is-invalid" />
+		<div class ="invalid-feedback" th:errors ="*{city}" ></div>
+	</div>
+	
+	<!-- P.O Box -->
+	<div class ="form-group" >
+		<label for ="poBox" th:text ="#{poBox}"></label>
+		<input type ="text" class ="form-control" th:field="*{poBox}" th:errorclass ="is-invalid" />
+		<div class ="invalid-feedback" th:errors ="*{poBox}" ></div>
+	</div>
+	<!-- Signup button -->
+	<input type ='submit' value ='Submit'
+	class ='btn btn-dark w-100 mt-3' />
+</form>
+	<footer class="mt-auto">
+	  <div class="container-fluid bg-dark text-light py-3">
+	    <div class="row">
+	      <div class="col text-center">
+	        <p>&copy; 2023 Copyright Farm Support</p>
+	      </div>
+	    </div>
+	  </div>
+	</footer>
+</div>
+</body>
+</html>

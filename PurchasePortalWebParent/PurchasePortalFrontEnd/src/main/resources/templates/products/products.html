@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: page_head('Purchase Portal','none')"></head>
+<body>
+  <div class="container-fluid d-flex flex-column min-vh-100"> 
+	<div th:replace="navigation :: header_menu"></div>
+	
+	
+	<div class="bg-warning border rounded text-center mt-1">
+			<h2>Products</h2>			
+	 </div>
+	 
+	
+	<div class="row justify-content-between m-3">
+		<th:block th:each="product:${listProducts}">
+		<div class="col col-lg-2 m-3 text-center border border-dark rounded p-4" >
+			<a th:href="@{'/products/'+${product.id}}">
+				<img th:src="@{${product.getMainImagePath}}"  style="width: 120px"  />
+				<br/>
+				<b>[[${product.name}]]</b>
+			</a>
+		</div>
+		</th:block>
+	 </div>
+	 
+	 
+	<footer th:replace="fragments :: footer"></footer>
+</div>
+</body>
+</html>

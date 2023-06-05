@@ -29,6 +29,13 @@ public class RoleRepositoryTests {
 	};
 	
 	@Test
+	public void testCreateCustomerRole() {
+		Role roleCus = Role.builder().name("Customer").description("Wholesale Buyer").build();
+		Role savedRole = repo.save(roleCus);
+		assertThat(savedRole.getId()).isGreaterThan(0);
+	};
+	
+	@Test
 	public void testCreateRestRole() {
 		Role roleSales = Role.builder().name("Sales Agent").description("Manage Product Price").build();
 //		Role savedRole = repo.save(roleSales);

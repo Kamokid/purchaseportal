@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+	<div th:fragment="header_menu">
+	<form th:action="@{/logout}" method="post" th:hidden="true" name="logoutForm">
+		<input type="submit"/>
+	</form>
+		<nav class="navbar navbar-expand-lg bg-dark navbar-dark rounded">
+		<a class="navbar-brand" th:href="@{/}">
+			<img th:src="@{/images/admin.png}"/>
+		</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#topNavBar">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="topNavBar">
+			<ul class="navbar-nav justify-content-end w-100">
+				<li class="nav-item mx-5">
+					<a class="nav-link" th:href="@{/products}">Products</a>
+				</li>
+				<li class="nav-item mx-5">
+					<a class="nav-link" href=" ">Orders</a>
+				</li>
+				<li class="nav-item mx-3 mt-2">
+					<a class="nav-link fas fa-shopping-cart fa-xl" th:href="@{/cart}"></a>
+				</li>
+				<li class="nav-item dropdown mx-5">
+					<button class="nav-link  btn dropdown-toggle yellow-outline"  type="button" id="dropdownMenuButton" data-toggle="dropdown"  aria-haspopup="true" aria-expanded="false"
+					   sec:authentication="principal.fullname" style="color: #ffc107;">
+					</button>  
+					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+						<a class ="dropdown-item" th:href="@{/account/newcustomer}">Edit Company Details</a>
+						<a class ="dropdown-item" th:href="@{/account}">Edit Account Details</a>
+						<a class ="dropdown-item" id="logoutLink" href="">Logout</a>
+					</div>
+				</li>	
+			</ul>	
+		</div>
+		</nav>								
+	</div>	 	
+</body>
+</html>
